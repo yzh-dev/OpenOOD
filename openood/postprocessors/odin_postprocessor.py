@@ -6,8 +6,8 @@ import torch.nn as nn
 
 from .base_postprocessor import BasePostprocessor
 from openood.preprocessors.transform import normalization_dict
-
-
+# Enhancing the reliability of out-of-distribution image detection in neural networks. In ICLR, 2018
+# uses temperature scaling with gradient-based input perturbations
 class ODINPostprocessor(BasePostprocessor):
     def __init__(self, config):
         super().__init__(config)

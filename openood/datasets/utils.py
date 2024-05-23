@@ -66,7 +66,7 @@ def get_dataloader(config: Config):
                                     num_workers=dataset_config.num_workers,
                                     sampler=sampler)
         else:
-            CustomDataset = eval(split_config.dataset_class)
+            CustomDataset = eval(split_config.dataset_class)  # eval()函数用来执行一个字符串表达式，并返回表达式的值
             dataset = CustomDataset(
                 name=dataset_config.name + '_' + split,
                 imglist_pth=split_config.imglist_pth,

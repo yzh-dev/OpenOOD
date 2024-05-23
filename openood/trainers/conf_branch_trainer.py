@@ -48,8 +48,7 @@ class ConfBranchTrainer:
             batch = next(train_dataiter)
             images = Variable(batch['data']).cuda()
             labels = Variable(batch['label']).cuda()
-            labels_onehot = Variable(
-                encode_onehot(labels, self.config.num_classes))
+            labels_onehot = Variable(encode_onehot(labels, self.config.num_classes))
             self.net.zero_grad()
 
             pred_original, confidence = self.net(images,
@@ -64,8 +63,7 @@ class ConfBranchTrainer:
                 # Randomly set half of the confidences to 1 (i.e. no hints)
                 b = Variable(
                     torch.bernoulli(
-                        torch.Tensor(confidence.size()).uniform_(0,
-                                                                 1))).cuda()
+                        torch.Tensor(confidence.size()).uniform_(0,1))).cuda()
                 conf = confidence * b + (1 - b)
                 pred_new = pred_original * conf.expand_as(
                     pred_original) + labels_onehot * (

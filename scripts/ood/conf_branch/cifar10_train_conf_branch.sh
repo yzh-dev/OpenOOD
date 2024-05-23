@@ -13,3 +13,5 @@ python main.py \
     configs/preprocessors/base_preprocessor.yml \
     --network.backbone.name resnet18_32x32 \
     --seed ${SEED}
+
+#--config configs/datasets/cifar10/cifar10.yml     configs/networks/conf_branch.yml     configs/pipelines/train/train_conf_branch.yml     configs/preprocessors/base_preprocessor.yml     --network.backbone.name resnet18_32x32     --seed 0

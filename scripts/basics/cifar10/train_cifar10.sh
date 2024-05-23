@@ -16,3 +16,4 @@ python main.py \
     configs/networks/resnet18_32x32.yml \
     configs/pipelines/train/baseline.yml \
     --seed 0
+#--config configs/datasets/cifar10/cifar10.yml configs/preprocessors/base_preprocessor.yml configs/networks/resnet18_32x32.yml configs/pipelines/train/baseline.yml --seed 0

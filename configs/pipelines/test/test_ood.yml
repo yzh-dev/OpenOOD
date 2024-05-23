@@ -12,6 +12,7 @@ machine_rank: 0
 
 network:
   pretrained: True
+#  pretrained: False
 
 pipeline:
   name: test_ood

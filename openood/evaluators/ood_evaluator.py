@@ -200,14 +200,12 @@ class OODEvaluator(BaseEvaluator):
             net['backbone'].eval()
         else:
             net.eval()
-        self.id_pred, self.id_conf, self.id_gt = postprocessor.inference(
-            net, data_loader)
+        self.id_pred, self.id_conf, self.id_gt = postprocessor.inference(net, data_loader)
 
         if fsood:
             assert csid_data_loaders is not None
             for dataset_name, csid_dl in csid_data_loaders.items():
-                csid_pred, csid_conf, csid_gt = postprocessor.inference(
-                    net, csid_dl)
+                csid_pred, csid_conf, csid_gt = postprocessor.inference(net, csid_dl)
                 self.id_pred = np.concatenate([self.id_pred, csid_pred])
                 self.id_conf = np.concatenate([self.id_conf, csid_conf])
                 self.id_gt = np.concatenate([self.id_gt, csid_gt])

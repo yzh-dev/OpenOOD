@@ -43,8 +43,7 @@ class BaseTrainer:
         loss_avg = 0.0
         train_dataiter = iter(self.train_loader)
 
-        for train_step in tqdm(range(1,
-                                     len(train_dataiter) + 1),
+        for train_step in tqdm(range(1, len(train_dataiter) + 1),
                                desc='Epoch {:03d}: '.format(epoch_idx),
                                position=0,
                                leave=True,

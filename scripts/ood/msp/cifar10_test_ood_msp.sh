@@ -18,9 +18,12 @@ python main.py \
     configs/preprocessors/base_preprocessor.yml \
     configs/postprocessors/msp.yml \
     --num_workers 8 \
-    --network.checkpoint './results/cifar10_resnet18_32x32_base_e100_lr0.1_default/s0/best.ckpt' \
+    --network.checkpoint ./results/cifar10_resnet18_32x32_base_e100_lr0.1_default/s0/best.ckpt \
     --mark 0 \
     --merge_option merge
+
+
+#    --config configs/datasets/cifar10/cifar10.yml     configs/datasets/cifar10/cifar10_ood.yml     configs/networks/resnet18_32x32.yml     configs/pipelines/test/test_ood.yml     configs/preprocessors/base_preprocessor.yml     configs/postprocessors/msp.yml     --num_workers 8     --network.checkpoint ./results/cifar10_resnet18_32x32_base_e100_lr0.1_default/s0/best.ckpt     --mark 0     --merge_option merge
 
 ############################################
 # alternatively, we recommend using the

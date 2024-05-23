@@ -25,7 +25,7 @@ def main(config):
 
 
 if __name__ == '__main__':
-
+    # 参数配置
     config = setup_config()
     # generate output directory and save the full config file
     # setup_logger(config)

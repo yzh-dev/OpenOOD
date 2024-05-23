@@ -48,8 +48,7 @@ class TrainPipeline:
 
             # train and eval the model
             if self.config.trainer.name == 'mos':
-                net, train_metrics, num_groups, group_slices = \
-                    trainer.train_epoch(epoch_idx)
+                net, train_metrics, num_groups, group_slices = trainer.train_epoch(epoch_idx)
                 val_metrics = evaluator.eval_acc(net,
                                                  val_loader,
                                                  train_loader,
@@ -63,8 +62,7 @@ class TrainPipeline:
                 val_metrics = train_metrics
             else:
                 net, train_metrics = trainer.train_epoch(epoch_idx)
-                val_metrics = evaluator.eval_acc(net, val_loader, None,
-                                                 epoch_idx)
+                val_metrics = evaluator.eval_acc(net, val_loader, None, epoch_idx)
             comm.synchronize()
             if comm.is_main_process():
                 # save model and report the result

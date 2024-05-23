@@ -185,12 +185,9 @@ if __name__ == '__main__':
             store_path = args.save_dir[0]
             if not store_path.endswith('/'):
                 store_path = store_path + '/'
-            if not os.path.exists(os.path.join(store_path,
-                                               'benchmark_imglist')):
-                gdown.download(id=download_id_dict['benchmark_imglist'],
-                               output=store_path)
-                file_path = os.path.join(args.save_dir[0],
-                                         'benchmark_imglist.zip')
+            if not os.path.exists(os.path.join(store_path, 'benchmark_imglist')):
+                gdown.download(id=download_id_dict['benchmark_imglist'], output=store_path)
+                file_path = os.path.join(args.save_dir[0], 'benchmark_imglist.zip')
                 with zipfile.ZipFile(file_path, 'r') as zip_file:
                     zip_file.extractall(store_path)
                 os.remove(file_path)

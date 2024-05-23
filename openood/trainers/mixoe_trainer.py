@@ -11,6 +11,7 @@ from openood.utils import Config
 
 from .base_trainer import BaseTrainer
 
+# Mixture Outlier Exposure: Towards Out-of-Distribution in Fine-grained Environments
 
 class MixOETrainer(BaseTrainer):
     def __init__(

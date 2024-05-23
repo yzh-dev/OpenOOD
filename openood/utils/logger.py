@@ -82,6 +82,7 @@ def setup_logger(config):
     if config.save_output and comm.is_main_process():
         print('Output dir: {}'.format(output), flush=True)
         if osp.isdir(output):
+            config.merge_option = 'merge'  # 设置为merge
             if config.merge_option == 'default':
                 ans = input('Exp dir already exists, merge it? (y/n)')
                 if ans in ['yes', 'Yes', 'YES', 'y', 'Y', 'can']:

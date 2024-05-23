@@ -7,7 +7,8 @@ from torch.utils.data import DataLoader
 
 import openood.utils.comm as comm
 
-
+# A baseline for detecting misclassified and out-of-distribution examples in neural networks. In ICLR, 2017
+# MSP is the first and the most basic baseline that directly uses the maximum SoftMax score to indicate ID-ness.
 class BasePostprocessor:
     def __init__(self, config):
         self.config = config
@@ -27,8 +28,7 @@ class BasePostprocessor:
                   data_loader: DataLoader,
                   progress: bool = True):
         pred_list, conf_list, label_list = [], [], []
-        for batch in tqdm(data_loader,
-                          disable=not progress or not comm.is_main_process()):
+        for batch in tqdm(data_loader, disable=not progress or not comm.is_main_process()):
             data = batch['data'].cuda()
             label = batch['label'].cuda()
             pred, conf = self.postprocess(net, data)

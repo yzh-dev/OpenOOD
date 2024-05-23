@@ -34,8 +34,7 @@ class TrainOEPipeline:
             net = torch.nn.SyncBatchNorm.convert_sync_batchnorm(net)
 
         # init trainer and evaluator
-        trainer = get_trainer(net, [train_loader, train_oe_loader], None,
-                              self.config)
+        trainer = get_trainer(net, [train_loader, train_oe_loader], None, self.config)
         evaluator = get_evaluator(self.config)
 
         if comm.is_main_process():
